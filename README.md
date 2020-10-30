@@ -49,7 +49,7 @@ spawn a *squadron*. If it is 2, spawn a *battalion*.
 - **Advance**: Move a unit. If it moves onto the space of another unit that is
 *flanked*, that unit is destroyed.
 
-Terminology:
+### Terminology
 
 - *Despoiled*: A despoiled space is impassable. Units cannot move onto it nor
 move over it. Despoiled spaces are so toxic that they cannot be restored.
@@ -68,6 +68,30 @@ other players is *flanked* because both *squadrons* could move onto it.
 - *Squadron*: A unit that can move one space on an **advance** action.
 - *Battalion*: A unit that can move two spaces on an **advance** action. This
 means it can *flank* at a range of two spaces.
+
+### Reading the board
+
+Each space on the board is represented by three characters which encode the
+different properties of a space.
+
+- The first character is the *infrastructure* level. `_` means the space has no
+*infrastructure*; `-` means it has 1; `*` means it has 2. `x` means the space is
+*despoiled*.
+- The second character indicates the player that has *claimed* the space. If the
+space is occupied by a unit, this also indicates who that unit belongs to. If
+the space is *unclaimed*, the second character will be `_`.
+- The third character indicates the presence and level of the unit occupying the
+space. If the space is not occupied by a unit, the third character will be `_`.
+If it is occupied by a squadron, the character will be `s`. If by a battalion,
+`B`.
+
+For example:
+
+- `___` indicates a space with no *infrastructure*, no claimant, and no unit.
+- `-1s` indicates a space with 1 *infrastructure* and a squadron belonging to
+player 1.
+- `*4_` indicates a space with 2 *infrastructure* claimed by player 4, but which
+is not occupied by a unit.
 
 ## Usage
 
