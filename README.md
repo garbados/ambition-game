@@ -1,16 +1,18 @@
 # ambition-game
 
 This project contains the digital board-game *Ambition*. This file explains how
-to run and play the game. Multiple players can play together in a single
-computer. You can even run the game on shared infrastructure and tmux both
+to run and play the game. Up to four players can play together on a single
+computer. You can even run the game on shared infrastructure and tmux multiple
 players into the game's terminal!
 
 ## Rules
 
-> The world is ending.
-> The sky churns with poison and toxic seas boil.
-> Your people must survive.
-> Will they?
+```
+> THE WORLD IS ENDING.
+> THE SKY CHURNS WITH POISON AND TOXIC SEAS BOIL.
+> YOUR PEOPLE MUST SURVIVE.
+> WILL THEY?
+```
 
 On an 6x6 square board, two to four players compete. Each player begins with two
 *squadrons* on two spaces with 1 *infrastructure*. Here are those spaces for
@@ -67,31 +69,18 @@ other players is *flanked* because both *squadrons* could move onto it.
 - *Battalion*: A unit that can move two spaces on an **advance** action. This
 means it can *flank* at a range of two spaces.
 
-Further thoughts:
-
-- Secret win conditions: At the start of the game, each player receives a unique
-win condition from the following deck. That player wins only if their condition
-is met.
-  - Death Cult: No players survive.
-  - Warlord: Destroy at least one unit for each player in the game.
-  - Ozymandias: Have the most infrastructure, regardless of whether anyone survives.
-  - Highlander: There can be only one! (Only one player survives. It doesn't have to be you!)
-  - Malthus: Half (rounded up) of all players survive. No more and no less.
-  - Humanitarian: All players survive.
-- AI players:
-  - Despoiler: Despoils with a random unit every turn, trying to run out the
-  clock before anyone can prepare for the end.
-  - Overseer: Advances battalions to the center of the map to create a large
-  flanking zone, in order to control the activities of other players. Once the
-  center is controlled, squadrons develop tiles to prepare for the end.
-  - Technocrat: Squadrons develop spaces. If no squadrons remain, muster and
-  continue.
-
 ## Usage
 
-First, install [Python 3](https://www.python.org/). Then:
+First, get the source code with [git](https://git-scm.com/):
 
-```bash
+```
+$ git clone https://github.com/garbados/ambition-game
+$ cd ambition-game
+```
+
+Then, using [Python](https://www.python.org/), run the game:
+
+```
 $ python game.py
 
 AMBITION - a game by garbados
@@ -102,10 +91,21 @@ AMBITION - a game by garbados
 > WILL THEY?
 
 How many players?
-
-...
+Choose 2 - 4:
 ```
 
 Each player is prompted in turn for their action. Once an action is chosen,
 valid parameters are presented to the player, such as by presenting a list of
 possible moves for a unit.
+
+You can also play a solitaire version of the game by running `solitaire.py`,
+in which the other three players are controlled by AI.
+
+## Contributing
+
+To report a bug, please file an [issue](https://github.com/garbados/ambition-game/issues).
+Generally speaking, I won't humor feature requests. Feel free to file them anyway.
+
+## License
+
+See [LICENSE.md](./LICENSE.md).
