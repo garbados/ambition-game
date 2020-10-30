@@ -526,7 +526,6 @@ class InputGame(Game):
         # skip turns for players without options -- ex, no units, etc.
         if len(valid_actions) > 0:
             # print latest map
-            print('')
             self.print_map()
             # get player choice
             print('')
@@ -559,6 +558,7 @@ class InputGame(Game):
         # - c: unit. squadron: s, battalion: B, none: _
         # ex: ___, for an undeveloped, unclaimed, unoccupied space
         # ex: *2B, for a 2-infra space claimed by player 2, occupied by a battalion
+        print('')
         print('   ' + '   '.join(X_ROW))
         for y in ROW_SIZE:
             row = []
