@@ -1,18 +1,19 @@
 # ambition-game
 
-This project contains the digital board-game *Ambition*. This file explains how
-to run and play the game. Up to four players can play together on a single
-computer. You can even run the game on shared infrastructure and tmux multiple
-players into the game's terminal!
-
-## Rules
-
 ```
 > THE WORLD IS ENDING.
 > THE SKY CHURNS WITH POISON AND TOXIC SEAS BOIL.
 > YOUR PEOPLE MUST SURVIVE.
 > WILL THEY?
 ```
+
+This project contains the digital board-game *Ambition*. This file explains how
+to run and play the game. Up to four players can play together on a single
+computer. You can even run the game on shared infrastructure and
+[tmux](https://github.com/tmux/tmux#welcome-to-tmux) multiple players into the
+game's terminal!
+
+## Rules
 
 On an 6x6 square board, two to four players compete. Each player begins with two
 *squadrons* on two spaces with 1 *infrastructure*. Here are those spaces for
