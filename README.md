@@ -127,6 +127,15 @@ possible moves for a unit.
 You can also play a solitaire version of the game by running `solitaire.py`,
 in which the other three players are controlled by AI.
 
+If you would like to read output from a game consisting entirely of AI, you can
+use `auto.py`, like so:
+
+```
+$ python auto.py | less
+```
+
+Then you can scroll through the game, turn by turn.
+
 ## Contributing
 
 To report a bug, please file an [issue](https://github.com/garbados/ambition-game/issues).

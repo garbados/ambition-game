@@ -94,8 +94,7 @@ def twice_adjacent_coords (x, y):
     further = [adjacent_coords(*coords) for coords in adjacencies]
     uniq_coords = set()
     uniq_coords.update(adjacencies)
-    for coords in further:
-        uniq_coords.update(coords)
+    for coords in further: uniq_coords.update(coords)
     return list(uniq_coords)
 
 class Space:
@@ -191,6 +190,8 @@ class Battalion(Unit):
 class Game:
     def __init__ (self, players = 2):
         assert players >= 2 and players <= 4
+        self._round = 0
+        self._turn = 0
         self._players = players
         # 6x6 grid
         self._map = [[Space(x, y) for y in ROW_SIZE] for x in ROW_SIZE]
@@ -403,9 +404,12 @@ class Game:
         raise Error("Not Implemented")
 
     def do_round (self):
+        self._round += 1 # increment round
         # have each player take their turn
         for player in range(0, self._players):
+            self._turn += 1 # increment turn as players choose actions
             self.do_turn(player)
+        self._turn = 0 # reset turn before new round
         return self.end_round()
 
     def play (self):
@@ -558,6 +562,8 @@ class InputGame(Game):
         # - c: unit. squadron: s, battalion: B, none: _
         # ex: ___, for an undeveloped, unclaimed, unoccupied space
         # ex: *2B, for a 2-infra space claimed by player 2, occupied by a battalion
+        print('')
+        print('Round %d - Turn %d' % (self._round, self._turn))
         print('')
         print('   ' + '   '.join(X_ROW))
         for y in ROW_SIZE:
