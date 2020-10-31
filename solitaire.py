@@ -21,10 +21,12 @@ def despoiler (game, player):
     # GRIN FOR YOU MUST
     # DIE! DIE! DIE!
     action_options = game.player_options(player)
+    # despoil if you can
     if DESPOIL in action_options:
         options = action_options[DESPOIL]
         choice = random.choice(options)
         game.despoil_action(choice)
+    # muster if you can't
     elif MUSTER in action_options:
         options = action_options[MUSTER]
         choice = random.choice(options)
@@ -43,7 +45,7 @@ def overseer (game, player):
     capture_options = [option for option in advance_options if option[1] in flanked_coords]
     center_occupied = all([game.unit(*coord) or not game.space(*coord).passable for coord in CENTER])
     # stomp a random thing that can be stomped
-    if ADVANCE in action_options and len(capture_options) > 0:
+    if len(capture_options) > 0:
         choice = random.choice(capture_options)
         game.advance_action(choice)
     # raise infrastructure in order to muster battalions
