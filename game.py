@@ -408,6 +408,8 @@ class Game:
         # have each player take their turn
         for player in range(0, self._players):
             self._turn += 1 # increment turn as players choose actions
+            action_options = self.player_options(player)
+            if len(action_options.items()) == 0: continue # nothing to do
             self.do_turn(player)
         self._turn = 0 # reset turn before new round
         return self.end_round()
