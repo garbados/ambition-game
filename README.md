@@ -33,7 +33,8 @@ round ends and a new round begins.
 
 At the end of each round one random passable, unclaimed space is *despoiled*,
 making it impassable. If there is a unit on this space, it is shunted to a
-random adjacent space.
+random adjacent space. If all adjacent spaces are occupied or impassable, the
+unit is destroyed.
 
 When there are no passable, unclaimed spaces left on the board, the game ends.
 Whoever has the most *infrastructure* wins. Players with more than 10
@@ -51,8 +52,9 @@ spawn a *squadron*. If it is 2, spawn a *battalion*.
 
 ### Terminology
 
-- *Despoiled*: A despoiled space is impassable. Units cannot move onto it nor
-move over it. Despoiled spaces are so toxic that they cannot be restored.
+- *Despoiled*: A despoiled space is impassable. Units cannot move onto it, but
+*battalions* can jump over it. *Despoiled* spaces are so toxic that they cannot
+be restored.
 - *Infrastructure*: A space can have 0, 1, or 2 *infrastructure*. It is a
 measure of the development of an area, including population centers as well as
 military assets. More developed areas can field more powerful units. Communities
