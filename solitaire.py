@@ -109,6 +109,7 @@ def expansionist (game, player):
     low_infra_spaces = [coord for coord in develop_options if game.space(*coord)._infra == 0]
     move_options = action_options.get(ADVANCE, [])
     no_infra_moves = [coords for coords in move_options if game.space(*coords[1])._infra == 0]
+    units = game.player_units(player)
     # develop any spaces with 0 infra
     if len(low_infra_spaces) > 0:
         choice = random.choice(low_infra_spaces)
@@ -118,7 +119,7 @@ def expansionist (game, player):
         choice = random.choice(no_infra_moves)
         game.advance_action(choice)
     # muster if you have no units
-    elif MUSTER in action_options:
+    elif MUSTER in action_options and len(units) == 0:
         options = action_options[MUSTER]
         choice = random.choice(options)
         game.muster_action(choice)
@@ -127,6 +128,11 @@ def expansionist (game, player):
         options = action_options[DEVELOP]
         choice = random.choice(options)
         game.develop_action(choice)
+    # fortify
+    elif MUSTER in action_options and len(units) == 0:
+        options = action_options[MUSTER]
+        choice = random.choice(options)
+        game.muster_action(choice)
     # move somewhere. anywhere!
     elif ADVANCE in action_options:
         options = action_options[ADVANCE]
