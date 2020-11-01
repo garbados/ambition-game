@@ -73,6 +73,11 @@ def overseer (game, player):
         options = [option for distance, option in distances if distance == min_distance]
         choice = random.choice(options)
         game.advance_action(choice)
+    # move somewhere. anywhere!
+    elif ADVANCE in action_options:
+        options = action_options[ADVANCE]
+        choice = random.choice(options)
+        game.advance_action(choice)
     else:
         random_action(game, action_options)
 
